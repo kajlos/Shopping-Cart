@@ -14,14 +14,29 @@ export default function Navbar() {
 }
 
 const NavWrapper = styled.nav`
-  color: orange;
+  color: var(--orange);
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: black;
+  box-shadow: 1px 2px 3px grey;
+  position: sticky;
   a {
-    color: white;
+    color: black;
     text-decoration: none;
+    position: relative;
+  }
+  a:after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background-color: var(--orange);
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+  }
+  a:hover:after {
+    width: 100%;
   }
 `;
 const LinksWrapper = styled.div`

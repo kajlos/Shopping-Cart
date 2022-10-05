@@ -7,5 +7,11 @@ export const GlobalStyle = createGlobalStyle`
         min-height:100vh;
         font-family: 'Roboto', sans-serif;
     }
-
+    #root{
+        display:flex;
+        flex-direction:column;
+    }
+    :root{
+        --orange:#ff5300;
+    }
 `;
