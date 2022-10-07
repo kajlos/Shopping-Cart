@@ -35,7 +35,7 @@ const Left = styled.div`
   }
   p {
     line-height: 2;
-    color: #686868;
+    color: var(--light-grey-text);
   }
   a {
     align-self: center;
@@ -45,10 +45,13 @@ const Left = styled.div`
     padding: 1rem 2rem;
     background-color: var(--orange);
     color: white;
-    font-family: 'Roboto', sans-seriff;
     font-size: 1.6em;
     border: none;
     border-radius: 1rem;
+    transition: 0.2s;
+  }
+  button:hover {
+    scale: 1.2;
   }
 `;
 const Right = styled.div`
@@ -58,19 +61,16 @@ const Right = styled.div`
   justify-content: center;
 `;
 const Child = styled.div`
-  background-color: #e9e9e9;
+  background-color: var(--bg-grey);
   padding: 2rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  align-self: center;
   gap: 1em;
   border-radius: 1rem;
-  & > * {
-    flex-basis: 100%;
-  }
+
   img {
-    display: block;
-    max-width: 100%;
     border-radius: 6px;
     align-self: center;
   }

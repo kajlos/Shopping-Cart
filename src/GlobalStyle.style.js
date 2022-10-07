@@ -13,5 +13,21 @@ export const GlobalStyle = createGlobalStyle`
     }
     :root{
         --orange:#ff5300;
+        --light-grey-text:#686868;
+        --bg-grey:#e9e9e9;
+    }
+    ul{
+        margin:0;
+        padding:0;
+    }
+    li{
+        list-style-type: none;
+    }
+    img{
+        display:block;
+        max-width:100%;
+    }
+    button{
+        font-family: 'Roboto', sans-serif;
     }
 `;

@@ -10,19 +10,23 @@ export default function Navbar() {
           <Link to="/">Tools Shop</Link>
         </h1>
         <LinksWrapper>
-          <Link to="/">Home</Link>
-          <Link to="/products">Products</Link>
-          <div>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/products">Products</Link>
+          </li>
+          <li>
             <button>
               <Cart />
             </button>
-          </div>
+          </li>
         </LinksWrapper>
       </NavWrapper>
     </Wrapper>
   );
 }
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   box-shadow: 1px 2px 3px grey;
   background-color: var(--orange);
   position: sticky;
@@ -36,23 +40,30 @@ const NavWrapper = styled.nav`
   justify-content: space-between;
   width: min(80%, 70rem);
   margin-inline: auto;
+  margin-bottom: 0.5em;
   a {
     color: white;
     text-decoration: none;
   }
   @media (min-width: 40em) {
     flex-direction: row;
+    margin-bottom: 0;
   }
 `;
-const LinksWrapper = styled.div`
+const LinksWrapper = styled.ul`
   gap: min(3vw, 3rem);
   display: flex;
+  align-items: center;
   button {
     background: none;
     border: none;
     cursor: pointer;
     svg {
       fill: white;
+      transition: 0.2s;
+    }
+    svg:hover {
+      scale: 1.2;
     }
   }
   a {
