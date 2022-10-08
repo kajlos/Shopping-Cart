@@ -1,0 +1,9 @@
+[
+  { "id": 1, "name": "Screwdriver", "price": 10.05, "img": "../imgs/screwdriver.jpg" },
+  { "id": 2, "name": "Hammer", "price": 13.98, "img": "../imgs/hammer.jpg" },
+  { "id": 3, "name": "Wrench", "price": 8.04, "img": "../imgs/wrench.jpg" },
+  { "id": 4, "name": "Toolbox", "price": 38.35, "img": "../imgs/toolbox.jpg" },
+  { "id": 5, "name": "Drill", "price": 68.79, "img": "../imgs/drill.jpg" },
+  { "id": 6, "name": "Pilers", "price": 8.99, "img": "../imgs/pilers.jpg" },
+  { "id": 7, "name": "Measuring tape", "price": 12.39, "img": "../imgs/measuring tape.jpg" }
+]

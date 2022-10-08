@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Cart from './Cart';
-export default function Navbar() {
+import CartIcon from './CartIcon';
+export default function Navbar({ setIsCartOpen }) {
   return (
     <Wrapper>
       <NavWrapper>
@@ -17,8 +17,8 @@ export default function Navbar() {
             <Link to="/products">Products</Link>
           </li>
           <li>
-            <button>
-              <Cart />
+            <button onClick={() => setIsCartOpen(true)}>
+              <CartIcon />
             </button>
           </li>
         </LinksWrapper>
@@ -66,7 +66,8 @@ const LinksWrapper = styled.ul`
       scale: 1.2;
     }
   }
-  a {
+  a,
+  li {
     color: white;
     text-decoration: none;
     position: relative;
@@ -86,7 +87,8 @@ const LinksWrapper = styled.ul`
   a:hover:after {
     width: 100%;
   }
-  a:hover {
+  a:hover,
+  li:hover {
     scale: 1.2;
   }
 `;

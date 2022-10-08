@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-export default function ProductCard({ img, price, name }) {
+export default function ProductCard({ product: { img, price, name } }) {
   return (
     <Container>
       <img src={img} alt="item"></img>
@@ -18,6 +18,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 0.5rem;
+  img {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
   div {
     display: flex;
     flex-direction: column;
@@ -35,7 +39,7 @@ const Container = styled.div`
     }
   }
   span:nth-child(1) {
-    font-weight: 'bold';
+    font-weight: 900;
     font-size: 1.2em;
   }
 `;

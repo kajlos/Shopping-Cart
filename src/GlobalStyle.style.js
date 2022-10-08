@@ -5,7 +5,8 @@ export const GlobalStyle = createGlobalStyle`
         margin:0;
         box-sizing:border-box;
         min-height:100vh;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto', sans-serif;        
+        overflow-x:hidden;
     }
     #root{
         display:flex;
