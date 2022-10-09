@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/products" element={<Products />}></Route>
       </Routes>
-      {isCartOpen ? <Cart setIsCartOpen={setIsCartOpen} /> : null}
+      {isCartOpen ? <Cart setIsCartOpen={setIsCartOpen} isCartOpen={isCartOpen} /> : null}
     </>
   );
 }
