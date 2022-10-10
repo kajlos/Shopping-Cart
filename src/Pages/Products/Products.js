@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import Wrapper from '../../components/Wrapper.style';
 import ProductCard from '../../components/ProductCard';
-import products from '../../Products.json';
-export default function Products() {
+import products from '../../data/Products.json';
+export default function Products({ addToCart }) {
   return (
     <Wrapper>
       <Container>
         {products.map(product => {
-          return <ProductCard key={product.id} product={product} />;
+          return <ProductCard key={product.id} product={product} addToCart={addToCart} />;
         })}
       </Container>
     </Wrapper>

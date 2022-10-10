@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-export default function ProductCard({ product: { img, price, name } }) {
+export default function ProductCard({ product, addToCart }) {
   return (
     <Container>
-      <img src={img} alt="item"></img>
+      <img src={product.img} alt="item"></img>
       <div>
-        <span>{name}</span>
-        <span>${price}</span>
-        <button>Add to the cart</button>
+        <span>{product.name}</span>
+        <span>${product.price}</span>
+        <button onClick={() => addToCart(product)}>Add to the cart</button>
       </div>
     </Container>
   );

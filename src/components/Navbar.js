@@ -2,7 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import CartIcon from './CartIcon';
-export default function Navbar({ setIsCartOpen }) {
+export default function Navbar({ setIsCartOpen, cart }) {
+  let sum = () => {
+    return cart.reduce((prev, current) => {
+      return prev + current.quantity;
+    }, 0);
+  };
+  let quantity = sum();
   return (
     <Wrapper>
       <NavWrapper>
@@ -17,9 +23,12 @@ export default function Navbar({ setIsCartOpen }) {
             <Link to="/products">Products</Link>
           </li>
           <li>
-            <button onClick={() => setIsCartOpen(true)}>
-              <CartIcon />
-            </button>
+            <CartIconDiv>
+              <button onClick={() => setIsCartOpen(true)}>
+                <CartIcon />
+                {cart.length > 0 && <CartNumber>{quantity}</CartNumber>}
+              </button>
+            </CartIconDiv>
           </li>
         </LinksWrapper>
       </NavWrapper>
@@ -91,4 +100,22 @@ const LinksWrapper = styled.ul`
   li:hover {
     scale: 1.2;
   }
+`;
+const CartIconDiv = styled.div`
+  position: relative;
+  button {
+    color: inherit;
+  }
+`;
+const CartNumber = styled.div`
+  position: absolute;
+  top: 0;
+  translate: 50% -50%;
+  background-color: red;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

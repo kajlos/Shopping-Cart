@@ -8,6 +8,9 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Roboto', sans-serif;        
         overflow-x:hidden;
     }
+    *{
+        box-sizing:border-box;
+    }
     #root{
         display:flex;
         flex-direction:column;
