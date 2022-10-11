@@ -1,14 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import CartIcon from './CartIcon';
-export default function Navbar({ setIsCartOpen, cart }) {
-  let sum = () => {
-    return cart.reduce((prev, current) => {
-      return prev + current.quantity;
-    }, 0);
-  };
-  let quantity = sum();
+import { CartContext } from '../Contexts/CartContext';
+export default function Navbar() {
+  const { quantity, setIsCartOpen, cart } = useContext(CartContext);
   return (
     <Wrapper>
       <NavWrapper>
