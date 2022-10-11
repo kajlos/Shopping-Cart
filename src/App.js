@@ -1,48 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import Navbar from './components/Navbar';
 import { Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import Products from './Pages/Products/Products';
 import Cart from './components/Cart';
+import { CartContext } from './Contexts/CartContext';
 function App() {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cart, setCart] = useState([]);
-  const addToCart = product => {
-    let exist = cart.find(x => x.id === product.id);
-    if (exist) {
-      setCart(
-        cart.map(x => (x.id === product.id ? { ...exist, quantity: exist.quantity + 1 } : x))
-      );
-    } else {
-      setCart([...cart, { ...product, quantity: 1 }]);
-    }
-  };
-  const removeFromCart = product => {
-    if (product.quantity === 1) {
-      let newCart = cart.filter(x => x.id !== product.id);
-      setCart(newCart);
-    } else {
-      setCart(
-        cart.map(x => (x.id === product.id ? { ...product, quantity: product.quantity - 1 } : x))
-      );
-    }
-  };
+  const { isCartOpen } = useContext(CartContext);
   return (
     <>
-      <Navbar setIsCartOpen={setIsCartOpen} cart={cart} />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/products" element={<Products addToCart={addToCart} />}></Route>
+        <Route path="/products" element={<Products />}></Route>
       </Routes>
-      {isCartOpen && (
-        <Cart
-          setIsCartOpen={setIsCartOpen}
-          isCartOpen={isCartOpen}
-          cart={cart}
-          addToCart={addToCart}
-          removeFromCart={removeFromCart}
-        />
-      )}
+      {isCartOpen && <Cart />}
     </>
   );
 }

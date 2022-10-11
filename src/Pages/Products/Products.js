@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import Wrapper from '../../components/Wrapper.style';
 import ProductCard from '../../components/ProductCard';
 import products from '../../data/Products.json';
-export default function Products({ addToCart }) {
+
+export default function Products() {
   return (
     <Wrapper>
       <Container>
         {products.map(product => {
-          return <ProductCard key={product.id} product={product} addToCart={addToCart} />;
+          return <ProductCard key={product.id} product={product} />;
         })}
       </Container>
     </Wrapper>
