@@ -3,13 +3,11 @@ import { createPortal } from 'react-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import CartItem from './CartItem';
 export default function Cart({ setIsCartOpen, isCartOpen, cart, addToCart, removeFromCart }) {
-  const sum = () => {
-    let sum = cart.reduce((prev, current) => {
+  let total = cart
+    .reduce((prev, current) => {
       return prev + current.price * current.quantity;
-    }, 0);
-    return sum.toFixed(2);
-  };
-  let total = sum();
+    }, 0)
+    .toFixed(2);
   return createPortal(
     <>
       <Container isCartOpen={isCartOpen}>

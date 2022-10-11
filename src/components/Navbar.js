@@ -3,12 +3,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import CartIcon from './CartIcon';
 export default function Navbar({ setIsCartOpen, cart }) {
-  let sum = () => {
-    return cart.reduce((prev, current) => {
-      return prev + current.quantity;
-    }, 0);
-  };
-  let quantity = sum();
+  let quantity = cart.reduce((prev, current) => {
+    return prev + current.quantity;
+  }, 0);
   return (
     <Wrapper>
       <NavWrapper>
