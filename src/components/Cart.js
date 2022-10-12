@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { createPortal } from 'react-dom';
 import styled, { createGlobalStyle } from 'styled-components';
+import { CartContext } from '../Contexts/CartContext';
 import CartItem from './CartItem';
-export default function Cart({ setIsCartOpen, isCartOpen, cart, addToCart, removeFromCart }) {
-  let total = cart
-    .reduce((prev, current) => {
-      return prev + current.price * current.quantity;
-    }, 0)
-    .toFixed(2);
+export default function Cart() {
+  const { total, setIsCartOpen, isCartOpen, cart } = useContext(CartContext);
+  console.log(total, setIsCartOpen, isCartOpen, cart);
   return createPortal(
     <>
       <Container isCartOpen={isCartOpen}>
@@ -17,14 +15,7 @@ export default function Cart({ setIsCartOpen, isCartOpen, cart, addToCart, remov
         </div>
         <ProductsContainer>
           {cart.map(x => {
-            return (
-              <CartItem
-                key={x.id}
-                product={x}
-                addToCart={addToCart}
-                removeFromCart={removeFromCart}
-              />
-            );
+            return <CartItem key={x.id} product={x} />;
           })}
         </ProductsContainer>
         <BottomDiv>

@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { GlobalStyle } from './GlobalStyle.style';
 import { HashRouter } from 'react-router-dom';
+import { CartContextProvider } from './Contexts/CartContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <GlobalStyle />
     <HashRouter>
-      <App />
+      <CartContextProvider>
+        <App />
+      </CartContextProvider>
     </HashRouter>
   </React.StrictMode>
 );

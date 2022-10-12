@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
-export default function CartItem({ product, addToCart, removeFromCart }) {
+import { CartContext } from '../Contexts/CartContext';
+export default function CartItem({ product }) {
+  const { addToCart, removeFromCart } = useContext(CartContext);
   return (
     <Container>
       <div>
