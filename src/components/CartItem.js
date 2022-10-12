@@ -4,7 +4,7 @@ export default function CartItem({ product, addToCart, removeFromCart }) {
   return (
     <Container>
       <div>
-        <img src={product.img} alt="product"></img>
+        <img src={`${process.env.PUBLIC_URL}${product.img}`} alt="product"></img>
       </div>
       <Right>
         <h3>{product.name}</h3>

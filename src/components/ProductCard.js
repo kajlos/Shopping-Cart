@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default function ProductCard({ product, addToCart }) {
   return (
     <Container>
-      <img src={product.img} alt="item"></img>
+      <img src={`${process.env.PUBLIC_URL}${product.img}`} alt="item"></img>
       <div>
         <span>{product.name}</span>
         <span>${product.price}</span>
